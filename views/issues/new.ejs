@@ -1,0 +1,41 @@
+<% layout('/layouts/boilerplate') %>
+<div class="row">
+    <h1 class="text-center">New Issue</h1> 
+    <div class="col-md-6 offset-md-3">
+        <form action="/issues" method="post" novalidate class="validated-form" enctype="multipart/form-data">
+            <div class="mb-3" >
+                <label class="form-label" for="title">Title</label>
+                <input class="form-control" type="text" id="title" name="issue[title]" required>
+                <div class="valid-feedback">
+                    Looks Good!!
+                </div>
+            </div>
+            <div class="mb-3" >
+                <label class="form-label" for="location">Location</label>
+                <input class="form-control" type="text" id="location" name="issue[location]" required>
+                <div class="valid-feedback">
+                    Looks Good!!
+                </div>
+            </div>
+            
+            <div class="mb-3" >
+                <label class="form-label" for="description">Description</label>
+                <textarea class="form-control" type="text" id="description" name="issue[description]" required></textarea>
+                <div class="valid-feedback">
+                    Looks Good!!
+                </div>
+            </div>
+            <div class="mb-3">
+            <label for="image" class="form-label">Choose image(s)</label>
+            <input class="form-control" type="file" id="image" name="image" multiple>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-success">Add issue</button>
+            </div>
+        </form>
+    <!-- <a href="/issues">All Issues</a> -->
+    </div>
+
+</div>
+
+
