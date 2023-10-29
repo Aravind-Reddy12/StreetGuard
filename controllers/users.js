@@ -24,6 +24,10 @@ module.exports.renderLogin=(req, res) => {
     res.render('users/login');
 }
 
+module.exports.renderAdminLogin = (req, res) => {
+    res.render('users/adminLogin');
+}
+
 module.exports.login=(req, res) => {
     req.flash('success', 'Welcome back!!');
     const redirectUrl = res.locals.returnTo || '/issues';

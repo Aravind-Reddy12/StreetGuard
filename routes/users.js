@@ -14,6 +14,11 @@ router.route('/login')
     .get( users.renderLogin)
     .post(storeReturnTo, passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), users.login)
 
+router.route('/adminLogin')
+    .get(users.renderAdminLogin)
+    .post(storeReturnTo, passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), users.login)
+
+
 router.get('/logout', users.logout);
 
 module.exports = router;

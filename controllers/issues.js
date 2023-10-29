@@ -8,9 +8,14 @@ module.exports.index = async (req, res) => {
     res.render('issues/index', { issues })
 }
 
+module.exports.renderDashboard = (req, res) => {
+    res.render('issues/dashboard');
+}
+
 module.exports.renderNewForm=(req, res) => {
     res.render('issues/new');
 }
+
 
 module.exports.createIssue=async (req, res, next) => { 
     const geoData=await geocoder.forwardGeocode({

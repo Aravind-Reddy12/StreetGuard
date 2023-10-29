@@ -15,8 +15,11 @@ const upload = multer({ storage })
 router.route('/')
     .get( catchAsync(issues.index))
     .post(isLoggedIn,upload.array('image'), validateIssue, catchAsync(issues.createIssue))
-    
+
+router.get('/dashboard',isLoggedIn,issues.renderDashboard)
 router.get('/new', isLoggedIn, issues.renderNewForm)
+
+
 
 router.route('/:id')
     .get(isLoggedIn, catchAsync(issues.showIssue))
