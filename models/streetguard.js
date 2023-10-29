@@ -35,6 +35,10 @@ const StreetguardSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref:'User'
     },
+    // adminId: {
+    //     type: Schema.Types.ObjectId,
+    //     ref:'User'
+    // },
     reviews: [
         {
             type: Schema.Types.ObjectId,

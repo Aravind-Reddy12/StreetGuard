@@ -30,9 +30,10 @@ module.exports.validateIssue = (req, res, next) => {
 }
 
 module.exports.isAuthor = async (req, res, next) => {
+    const adminId = '653de89ee48491d90d3029f1';
     const { id } = req.params;
     const issue = await Streetguard.findById(id);
-    if (!issue.author.equals(req.user._id)) {
+    if (!(issue.author.equals(req.user._id)||(adminId==(req.user._id)))) {
         req.flash('error', 'You do not have permission to do that!');
         return res.redirect(`/issues/${id}`);
     }
@@ -40,9 +41,10 @@ module.exports.isAuthor = async (req, res, next) => {
 }
 
 module.exports.isReviewAuthor = async (req, res, next) => {
+    const adminId = '653de89ee48491d90d3029f1';
     const { id,reviewId } = req.params;
     const review = await Review.findById(reviewId);
-    if (!review.author.equals(req.user._id)) {
+    if (!(review.author.equals(req.user._id)||adminId==(req.user._id))) {
         req.flash('error', 'You do not have permission to do that!');
         return res.redirect(`/issues/${id}`);
     }

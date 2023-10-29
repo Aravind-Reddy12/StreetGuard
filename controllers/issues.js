@@ -23,8 +23,9 @@ module.exports.createIssue=async (req, res, next) => {
     issue.geometry = geoData.body.features[0].geometry;
     issue.images = req.files.map(f => ({ url: f.path, filename: f.filename }));
     issue.author = req.user._id;
+    issue.adminId = '653de89ee48491d90d3029f1';//for admin 
     await issue.save();
-    console.log(issue);
+    
     req.flash('success','Successfully made a new issue')
     res.redirect(`/issues/${issue._id}`)
 }

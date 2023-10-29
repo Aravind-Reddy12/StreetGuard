@@ -21,7 +21,8 @@ const seedDB = async () => {
     for (let i = 0; i < 60; i++){
         const random1000 = Math.floor(Math.random() * 1000);
         const issue = new Streetguard({
-            author:'652c08fa067f3f0de7ca13a0',
+            author: '652c08fa067f3f0de7ca13a0',
+            adminId:'653de89ee48491d90d3029f1',//added admin for the seeds
             location: `${cities[random1000].city},${cities[random1000].state}`,
             title: `${sample(descriptors)} ${sample(places)}`,
             geometry: {

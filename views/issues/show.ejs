@@ -41,7 +41,8 @@
     <li class="list-group-item text-muted"><%=issue.location %></li>
     <li class="list-group-item text">Submitted by <%=issue.author.username %></li>
   </ul>
-  <% if(currentUser && issue.author.equals(currentUser._id)) { %>
+  <% adminId='653de89ee48491d90d3029f1' %>
+  <% if((currentUser && (issue.author.equals(currentUser._id)||adminId==currentUser._id))) { %>
     <div class="card-body">
       <a class="card-link btn btn-info" href="/issues/<%=issue._id%>/edit">Edit</a>
       <form class="d-inline" action="/issues/<%=issue._id%>?_method=DELETE" method="POST">
