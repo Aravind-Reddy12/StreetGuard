@@ -16,7 +16,7 @@ router.route('/')
     .get( catchAsync(issues.index))
     .post(isLoggedIn,upload.array('image'), validateIssue, catchAsync(issues.createIssue))
 
-router.get('/dashboard',isLoggedIn,issues.renderDashboard)
+router.get('/dashboard',isLoggedIn,issues.renderDashboard,catchAsync(issues.index))
 router.get('/new', isLoggedIn, issues.renderNewForm)
 
 

@@ -8,8 +8,9 @@ module.exports.index = async (req, res) => {
     res.render('issues/index', { issues })
 }
 
-module.exports.renderDashboard = (req, res) => {
-    res.render('issues/dashboard');
+module.exports.renderDashboard = async(req, res) => {
+    const issues = await Streetguard.find({});
+    res.render('issues/dashboard',{issues});
 }
 
 module.exports.renderNewForm=(req, res) => {

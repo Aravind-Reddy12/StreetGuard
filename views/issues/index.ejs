@@ -10,7 +10,6 @@
                         <img class="img-fluid" alt="" src="<%=issue.images[0].url%>">
                         <% }else{ %>
                         <img class="img-fluid" alt="" src="https://res.cloudinary.com/dvyolwnhx/image/upload/v1697472622/Streetguard/wxp4n8kprtmfj3bphesn.jpg">
-
                          <% } %>
                     </div>
                     <div class="col-md-8">
@@ -18,7 +17,7 @@
                             <h5 class="card-title"> <%=issue.title%></h5>
                             <p class="card-text"><%=issue.description%></p>
                             <p class="card-text">
-                                <small class="text-muted"><%=issue.location%></small>
+                             <small class="text-muted"><%=issue.location%></small>
                             </p>
                             <a class="btn btn-primary" href="/issues/<%=issue._id%>"> View <%=issue.title%></a>
                         </div>

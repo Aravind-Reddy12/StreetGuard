@@ -1,1 +1,27 @@
 <% layout('/layouts/boilerplate') %>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+<% for(let issue of issues) { %>
+  <div class="col">
+    <div class="card h-100">
+        <% if(issue.images.length)  {%>
+                    <img class="img-fluid" alt="" src="<%=issue.images[0].url%>">
+                    <% }else{ %>
+                    <img class="img-fluid" alt="" src="https://res.cloudinary.com/dvyolwnhx/image/upload/v1697472622/Streetguard/wxp4n8kprtmfj3bphesn.jpg">
+        <% } %>
+      <div class="card-body">
+        <h5 class="card-title"> <%=issue.title%></h5>
+                <p class="card-text"><%=issue.description%></p>
+                <p class="card-text">
+                <small class="text-muted"><%=issue.location%></small>
+                </p>
+                <a class="btn btn-primary" href="/issues/<%=issue._id%>"> View <%=issue.title%></a>
+      </div>
+      
+    </div>
+  </div>
+  <% } %> 
+    </div>
+ <script>
+ // const mapToken='<%-process.env.MAPBOX_TOKEN %>';
+  const issues= {features:<%- JSON.stringify(issues) %>}
+</script>
