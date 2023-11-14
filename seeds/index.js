@@ -19,7 +19,7 @@ const sample = array => array[Math.floor(Math.random() * array.length)];
 const seedDB = async () => {
     await Streetguard.deleteMany({});
     for (let i = 0; i < 60; i++){
-        const random1000 = Math.floor(Math.random() * 1000);
+        const random1000 = Math.floor(Math.random() * 60);
         const issue = new Streetguard({
             author: '652c08fa067f3f0de7ca13a0',
             adminId:'653de89ee48491d90d3029f1',//added admin for the seeds
